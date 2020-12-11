@@ -1,0 +1,32 @@
+input[type=text] {
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button{
+  background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+canvas{
+  /*prevent interaction with the canvas*/
+  pointer-events:none;
+}
+.ReloadBtn { 
+  background:url('https://cdn3.iconfinder.com/data/icons/basic-interface/100/update-64.png') left top no-repeat;   
+  background-size : 100%;
+  width: 32px; 
+  height: 32px;
+  border: 0px; outline none;
+  position: absolute; 
+  bottom: 30px;
+  left : 310px;
+  outline: none;
+  cursor: pointer; /**/
+}
