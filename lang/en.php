@@ -219,7 +219,9 @@ Maharashtra – 415526",
 "questions5"=>"- can i re-apply for job application ?",
 
 "applyjob"=>"Apply job",
-"response"=>"Response"
+"response"=>"Response",
+"responsejob"=>"The application you have responded to",
+"respjob"=>" Responded Applications"
 
 
 );

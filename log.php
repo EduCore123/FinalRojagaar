@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $mail->isHTML(true);                                  // Set email format to HTML
                     $mail->Subject = 'OTP for login';
                     $mail->Body    = '<p>Hey, Your OTP to login is <b>'. $otp .'<b/></p>';
-                    $mail->send();
+                    // $mail->send();
 
                 // open login screen with otp field.
                 header('Location:index.php');

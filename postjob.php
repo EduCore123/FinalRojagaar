@@ -9,6 +9,7 @@ require_once("connect.php");
     <title>Rojagaar Website</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <input type="text" name="gender" value="<?= $_SESSION['gender'] ?>" hidden>
   </head>
   <body>
   <?php $_SESSION['currentPage'] = 'postjob'; ?>
@@ -18,7 +19,7 @@ require_once("connect.php");
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start" data-scrollax-parent="true">
           <div class="col-md-8 ftco-animate text-center text-md-left mb-5" data-scrollax=" properties: { translateY: '70%' }">
-            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-3"><a href="home.php"><?php echo $lang['home'] ?> <i class="ion-ios-arrow-forward"></i></a></span> <span><?php echo $lang['postjob'] ?></span></p>
+            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-3"><a href="dashboard.php"><?php echo $lang['home'] ?> <i class="ion-ios-arrow-forward"></i></a></span> <span><?php echo $lang['postjob'] ?></span></p>
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><?php echo $lang['postjob'] ?></h1>
           </div>
         </div>
@@ -59,10 +60,10 @@ require_once("connect.php");
                 </div>
               </div>
 
- <div class="form-group">
+ <div class="form-group" name="groupselection">
         <label  class="font-weight-bold" for="gender"><?php echo $lang['requirement'] ?>:</label>
        <div class="form-check">
-     
+
         <label class="form-check-label" for="radio1"  >
         <input type="radio" class="form-check-input" id="radio1" name="opt" value="individual" checked><?php echo $lang['individual'] ?>
       </label>
@@ -72,29 +73,29 @@ require_once("connect.php");
         <input type="radio" class="form-check-input" id="radio2" name="opt" value="group"><?php echo $lang['group'] ?>
         </label>
           </div>
-    
+
   <div class="row form-group mb-4" >
   <div class="col-md-12 mb-3 mb-md-0">
-                 
+
                 </div>
 
                 <div class="col-md-4 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="avlfrm"><?php echo $lang['nom'] ?></label>
-                  <input type="number" id="nom" name="nom" value="<?php echo $_SESSION['nom'];?>" class="form-control" placeholder="<?php echo $lang['nom'] ?>" onchange="sum()" required>
+                  <input type="number" id="nom" name="nom" class="form-control" placeholder="<?php echo $lang['nom'] ?>" onchange="sum()" value="<?=(($_SESSION['gender'] == 'male') ? '1' : '0') ?>" disabled required>
                 </div>
                 <div class="col-md-4 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="till"><?php echo $lang['nof'] ?></label>
-                  <input type="number" id="nof" name="nof" value="<?php echo $_SESSION['nof'];?>" class="form-control" placeholder="<?php echo $lang['nof'] ?>" onchange="sum()" required>
+                  <input type="number" id="nof" name="nof" class="form-control" placeholder="<?php echo $lang['nof'] ?>" onchange="sum()" value="<?= (($_SESSION['gender'] == 'female') ? '1' : '0') ?>" disabled required>
                 </div>
                  <div class="col-md-4 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="total"><?php echo $lang['total'] ?></label>
-                  <input type="text" id="total" name="total"  class="form-control" placeholder="<?php echo $lang['total'] ?>">
-                </div>              
+                  <input type="text" id="total" name="total"  value="1" class="form-control" disabled placeholder="<?php echo $lang['total'] ?>">
+                </div>
               </div>
 
 
 
-               <div class="row form-group mb-4" >           
+               <div class="row form-group mb-4" >
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="avlfrm"><?php echo $lang['rqdfrm'] ?></label>
                   <input type="date" id="rqdfrm" name="rqdfrm" value="<?php echo $_SESSION['rqdfrm'];?>" class="form-control" placeholder="<?php echo $lang['rqdfrm'] ?>">
@@ -125,7 +126,7 @@ require_once("connect.php");
               <div class="row form-group ">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" ><?php echo $lang['district'] ?></label>
-                
+
                   <select  name="jobdistrict" id="district-list" class="form-control">
                   <option value="">Select</option>
                   </select>
@@ -150,9 +151,9 @@ require_once("connect.php");
                    <span class="error text-danger"><?php echo $jobvillageErr; ?></span>
                 </div>
               </div>
-             
-              
-             
+
+
+
              <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="fullname"><?php echo $lang['mobno'] ?></label>
@@ -200,6 +201,37 @@ require_once("connect.php");
                 document.getElementById('total').value = result;
             }
         }
+
+        $('body').on('change', 'input[type="radio"][name="opt"]', function () {
+          let selectedOption = $('input[type="radio"][name="opt"]:checked').val();
+          if(selectedOption == 'individual') {
+
+            if($("input[name='gender']").prop('value') == 'male') {
+              $("input#nom").prop("value", 1);
+              $("input#nof").prop("value", 0);
+
+            } else {
+              $("input#nof").prop("value", 1);
+              $("input#nom").prop("value", 0);
+            }
+
+            $("input#total").prop("value", 1);
+            $("input#nom").prop("disabled", true);
+            $("input#nof").prop("disabled", true);
+          } else {
+            $("input#nom").prop("value", 0);
+            $("input#nof").prop("value", 0);
+            $("input#total").prop("value", 0);
+            $("input#nom").prop("disabled", false);
+            $("input#nof").prop("disabled", false);
+          }
+        });
+        $('form').submit(function(e) {
+            $('input[disabled]').each(function(e) {
+                $(this).removeAttr('disabled');
+            })
+        });
+
     </script>
 
       <script>
@@ -217,4 +249,4 @@ function selectCountry(val) {
 $("#search-box").val(val);
 $("#suggesstion-box").hide();
 }
-</script> 
+</script>

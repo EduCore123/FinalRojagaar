@@ -19,7 +19,7 @@ include('connect.php');
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start" data-scrollax-parent="true">
           <div class="col-md-8 ftco-animate text-center text-md-left mb-5" data-scrollax=" properties: { translateY: '70%' }">
-            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-3"><a href="home.php"><?php echo $lang['home'] ?> <i class="ion-ios-arrow-forward"></i></a></span> </p>
+            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-3"><a href="dashboard.php"><?php echo $lang['home'] ?> <i class="ion-ios-arrow-forward"></i></a></span> </p>
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><?php echo $lang['profile'] ?></h1>
 
           </div>
@@ -93,14 +93,10 @@ include('connect.php');
             <label for='mobile'><?php echo $lang['mobileno'] ?></label>
             <input name='mobile' maxlength="10" id='mobile'  value="<?php echo $_SESSION['mobile'];?>"  class='form-control' type='text'  placeholder='<?php echo $lang['mobileno'] ?>' required>
         </div>
-         <div class='form-group'>
-            <label for='type'><?php echo $lang['type'] ?></label>
-            <input name='type' id='type'  value="<?php echo $_SESSION['type'];?>"  class='form-control' type='text' placeholder='<?php echo $lang['type'] ?>' readonly>
-        </div>
 
         <div class='form-group'>
             <input type="submit"  value="<?php echo $lang['edit'] ?>" class="btn btn-success">
-            <a href="changepassword.php"> <input value="<?php echo $lang['resetpassword'] ?>" class="btn btn-success"></a>
+s
         </div>
 </div>
 </form>

@@ -20,6 +20,7 @@
 		$sql = "INSERT INTO jobs_master (jobkey,requirementofworkers,requiredfrom,till,jobvillage,jobtaluka,jobdistrict,jobstate,mob,jobby, jobdesc,jobdate)
 			   VALUES ('$jobkey','$requirementofworkers','$requiredfrom','$till','$jobvillage','$jobtaluka','$jobdistrict','$jobstate','$mob','$jobby', '$jobdesc','$jobdate')";
 		$result = mysqli_query($conn, $sql);
+
 		if(!$result)
 		{
 		$_SESSION['message'] ="Unable to upload job !!!";

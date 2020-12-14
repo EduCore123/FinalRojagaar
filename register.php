@@ -21,7 +21,7 @@ session_start();
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start" data-scrollax-parent="true">
           <div class="col-md-8 ftco-animate text-center text-md-left mb-5" data-scrollax=" properties: { translateY: '70%' }">
-            <h3><p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-3"><a href="login.php"><?php echo $lang['login'] ?><i class="ion-ios-arrow-forward"></i></a></span> <span><?php echo $lang['regi'] ?></span></p></h3>
+            <h3><p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-3"><a href="index.php"><?php echo $lang['login'] ?><i class="ion-ios-arrow-forward"></i></a></span> <span><?php echo $lang['regi'] ?></span></p></h3>
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><?php echo $lang['register'] ?></h1>
 
           </div>

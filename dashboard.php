@@ -9,7 +9,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
-  <?php $_SESSION['currentPage'] = 'home'; ?>
+  <?php $_SESSION['currentPage'] = 'dashboard'; ?>
   <?php include'header.php';?>
   <div class="hero-wrap js-fullheight" style="background-image: url('assets/images/Farms/F2.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
@@ -32,7 +32,7 @@ session_start();
 
 </div>
 </div>
-<div class="row pt-5"  style="background-color: #99ff99">
+<div class="row pt-5">
     <div class="col-xs-12 col-md-6 pt-4 text-center border-right border-bottom">
       <img src="assets/images/Farms/F1.jpg" width="150" height="100"  alt=""><br>
      <a href="applyjob.php"> <button class="btn btn-primary zoom"><?= $lang['wantjob'] ?></button></a><br>
@@ -55,7 +55,7 @@ session_start();
     </div>
     <div class="col-xs-12 col-md-6 pt-4 text-center border-right border-bottom">
       <img src="assets/images/Farms/F5.jpg" width="150" height="100"  alt=""><br>
-     <a href="jobs1.php"> <button class="btn btn-primary zoom"><?= $lang['jobapplication'] ?></button></a><br>
+     <a href="jobs1.php"> <button class="btn btn-primary zoom"><?= $lang['response'] ?></button></a><br>
       <h3><?= $lang['dash5'] ?></h3><br>
     </div>
    <!--  <div class="col-xs-12 col-md-6 pt-4 text-center border-bottom">
@@ -65,7 +65,7 @@ session_start();
     </div> -->
     <div class="col-xs-12 col-md-6 pt-4 text-center border-right border-bottom">
       <img src="assets/images/Farms/F7.jpg" width="150" height="100"   alt=""><br>
-     <a href=".php"> <button class="btn btn-primary zoom"><?= $lang['response'] ?></button></a><br>
+     <a href="response1.php"> <button class="btn btn-primary zoom"><?= $lang['jobapplication'] ?></button></a><br>
       <h3><?= $lang['dash7'] ?></h3><br>
     </div>
   </div>
